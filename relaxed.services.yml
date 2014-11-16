@@ -30,10 +30,6 @@ services:
     class: Drupal\relaxed\Normalizer\RevisionInfoItemListNormalizer
     tags:
       - { name: normalizer, priority: 10 }
-  relaxed.normalizer.revs_diff_normalizer:
-    class: Drupal\relaxed\Normalizer\RevsDiffNormalizer
-    tags:
-      - { name: normalizer, priority: 20 }
   relaxed.normalizer.attachment:
     class: Drupal\relaxed\Normalizer\AttachmentNormalizer
     arguments: ['@entity.manager']
@@ -43,12 +39,6 @@ services:
     class: Drupal\relaxed\Normalizer\FileItemNormalizer
     tags:
       - { name: normalizer, priority: 10 }
-  relaxed.revs_diff:
-    class: Drupal\relaxed\RevisionDiff\RevisionDiff
-    arguments: ['@entity.index.rev']
-  relaxed.changes:
-    class: Drupal\relaxed\Changes\Changes
-    arguments: ['@entity.index.sequence']
   paramconverter.docid:
     class: Drupal\relaxed\ParamConverter\DocIdConverter
     arguments: ['@entity.manager', '@entity.index.uuid', '@entity.index.rev']
