@@ -26,8 +26,7 @@ use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
  *   },
  *   uri_paths = {
  *     "canonical" = "/{db}",
- *   },
- *   no_cache = TRUE
+ *   }
  * )
  */
 class DbResource extends ResourceBase {
