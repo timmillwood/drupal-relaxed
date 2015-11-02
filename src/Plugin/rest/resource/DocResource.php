@@ -7,7 +7,7 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\file\FileInterface;
 use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use GuzzleHttp\Psr7\MultipartStream;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -94,7 +94,7 @@ class DocResource extends ResourceBase {
         foreach ($revisions as $revision) {
           $parts[] = new ResourceResponse($revision, 200);
         }
-        return new StreamedResponse($parts, 200, array('Content-Type' => 'multipart/mixed'));
+        return new MultipartStream($parts);
       }
       else {
         $result = array();
