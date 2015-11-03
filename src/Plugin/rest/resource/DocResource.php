@@ -92,7 +92,7 @@ class DocResource extends ResourceBase {
         strpos($request->headers->get('Content-Type'), 'application/json') === FALSE
       ) {
         foreach ($revisions as $revision) {
-          $parts[] = new ResourceResponse($revision, 200);
+          $parts[] = ['name' => $revision->uuid, 'contents' => new ResourceResponse($revision, 200)];
         }
         return new MultipartStream($parts);
       }
