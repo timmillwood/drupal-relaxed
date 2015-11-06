@@ -23,10 +23,6 @@ abstract class NormalizerTestBase extends CoreNormalizerTestBase {
 
     $this->serializer = $this->container->get('serializer');
 
-    $this->container
-      ->get('entity.definition_update_manager')
-      ->applyUpdates();
-
     $workspace = entity_create('workspace', array('id' => 'default'));
     $workspace->save();
   }
